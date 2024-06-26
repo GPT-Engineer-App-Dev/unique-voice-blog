@@ -1,10 +1,12 @@
-import { Container, VStack, Heading, Text, Box, Image, Link, Button } from "@chakra-ui/react";
+import { Container, VStack, Heading, Text, Box, Image, Link, Button, useColorModeValue } from "@chakra-ui/react";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
 
 const Index = ({ posts }) => {
+  const bg = useColorModeValue("gray.100", "gray.900");
+  const color = useColorModeValue("black", "white");
   return (
-    <Container centerContent maxW="container.md" py={8}>
+    <Container centerContent maxW="container.md" py={8} bg={bg} color={color}>
       <VStack spacing={8}>
         <Box boxSize="150px">
           <Image src="/images/profile.jpg" alt="Profile Picture" borderRadius="full" boxSize="150px" />
