@@ -12,13 +12,17 @@ function App() {
     setPosts([...posts, post]);
   };
 
+  const deletePost = (index) => {
+    setPosts(posts.filter((_, i) => i !== index));
+  };
+
   return (
     <Router>
       <Button onClick={toggleColorMode} position="fixed" top="1rem" right="1rem">
         Toggle {colorMode === "light" ? "Dark" : "Light"} Mode
       </Button>
       <Routes>
-        <Route exact path="/" element={<Index posts={posts} />} />
+        <Route exact path="/" element={<Index posts={posts} deletePost={deletePost} />} />
         <Route exact path="/add-post" element={<AddPost addPost={addPost} />} />
       </Routes>
     </Router>
